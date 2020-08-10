@@ -19,7 +19,7 @@ optimizer = optim.SGD([w1,w2,w3,b],lr=1e-5)
 
 nb_epochs = 1000
 
-for epoch in range(nb.epochs):
+for epoch in range(nb_epochs):
 
     hypothesis = x1_train * w1 + x2_train *w2+ x3_train*w3+b
 
