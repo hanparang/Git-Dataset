@@ -41,7 +41,7 @@ class FaceLandmarksDataset(Dataset):
             idx = idx.tolist()
         img_name = os.path.join(self.root_dir, self.landmarks_frame.iloc[idx, 0])
         image = io.imread(img_name)
-        landmarks = self.landmarks_frame.iloc[idx, 1:5]
+        landmarks = self.landmarks_frame.iloc[idx, 2:6]
         landmarks = np.array([landmarks]).astype("float").reshape(-1, 2)
         sample = {'image': image, 'landmarks':landmarks}
 
@@ -50,7 +50,7 @@ class FaceLandmarksDataset(Dataset):
 
         return sample
 
-face_dataset = FaceLandmarksDataset(csv_file='C:/Users/asdzx/Downloads/test_torch/face_detect.csv', root_dir='C:/Users/asdzx/Downloads/test_torch')
+face_dataset = FaceLandmarksDataset(csv_file='lable.csv', root_dir='C:/Users/asdzx/Downloads/images')
 fig = plt.figure()
 
 for i, each_sample in enumerate(face_dataset):
